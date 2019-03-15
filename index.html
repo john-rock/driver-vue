@@ -9,6 +9,7 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,900i" rel="stylesheet"> 
         <link rel="stylesheet" href="css/styles.css">
         <script src="https://cdn.jsdelivr.net/npm/vue"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -21,12 +22,25 @@
         <![endif]-->
 
         <div id="app">
+
+          <div class="driver">
             <select v-model="selected">
-              <option v-for="driver in orderedDrivers" v-bind:value="driver.gsx$avgfinish.$t">
+              <option v-for="driver in orderedDrivers" v-bind:value="driver.gsx$avgfinish.$t + ',' + driver.gsx$races.$t">
                 {{driver.gsx$driver.$t}}
               </option>
             </select>
             <span>Avg Finish: {{ selected }}</span>
+          </div>
+
+          <div class="driver">
+            <select v-model="selected2">
+              <option v-for="driver in orderedDrivers" v-bind:value="driver.gsx$avgfinish.$t + ',' + driver.gsx$races.$t">
+                {{driver.gsx$driver.$t}}
+              </option>
+            </select>
+            <span>Avg Finish: {{ selected2 }}</span>
+          </div>
+
 
           </div>
         

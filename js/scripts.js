@@ -1,5 +1,7 @@
 console.clear()
 
+Vue.config.devtools = true;
+
 var url = "https://spreadsheets.google.com/feeds/list/1oBMFnukoAvh8CtqHFCr04uOxeDckdHgHlHbOXbaWb04/od6/public/values?alt=json"
 
 let app = new Vue({
@@ -10,7 +12,8 @@ let app = new Vue({
   
   data: {
     selected: '',
-    drivers: [] 
+    selected2: '',
+    drivers: []
   },
 
   computed: {
