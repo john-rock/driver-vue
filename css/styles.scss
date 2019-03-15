@@ -22,12 +22,15 @@ html {
     height: auto;
 }
 
+
+
 #app{
     display: flex;
     justify-content: space-around;
     flex-flow: row wrap;
     align-items: center;
     height:100vh;
+    white-space: pre-line;
 }
 
 .driver{

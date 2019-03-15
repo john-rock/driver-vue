@@ -38,6 +38,7 @@ img {
       -ms-flex-align: center;
           align-items: center;
   height: 100vh;
+  white-space: pre-line;
 }
 
 .driver {
