@@ -11,8 +11,8 @@ let app = new Vue({
   },
   
   data: {
-    selected: '',
-    selected2: '',
+    selected: null,
+    selected2: null,
     drivers: []
   },
 

@@ -25,15 +25,17 @@
 
           <div class="driver">
             <select v-model="selected">
-              <option v-for="driver in orderedDrivers" v-bind:value="'Starts: ' + driver.gsx$races.$t + '\n' +'Average Finish: ' + driver.gsx$avgfinish.$t">
+              <option :value="null" disabled>Select Driver 1</option>
+              <option v-for="driver in orderedDrivers" v-bind:value="driver.gsx$races.$t">
                 {{driver.gsx$driver.$t}}
               </option>
             </select>
-            <span>{{ selected }}</span>
+            <span>{{ selected.drivers.gsx$races.$t }}</span>
           </div>
 
           <div class="driver">
             <select v-model="selected2">
+              <option :value="null" disabled>Select Driver 2</option>
               <option v-for="driver in orderedDrivers" v-bind:value="'Starts: ' + driver.gsx$races.$t + '\n' +'Average Finish: ' + driver.gsx$avgfinish.$t">
                 {{driver.gsx$driver.$t}}
               </option>
