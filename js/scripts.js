@@ -2,7 +2,11 @@ console.clear()
 
 Vue.config.devtools = true;
 
-var url = "https://spreadsheets.google.com/feeds/list/1Kro7GozZoMHv0j_iQUqZLmuN9dONEYBWRb9grtneiQs/od6/public/values?alt=json"
+var trackID = "1";
+
+var url = "https://spreadsheets.google.com/feeds/list/1Kro7GozZoMHv0j_iQUqZLmuN9dONEYBWRb9grtneiQs/" + trackID + "/public/values?alt=json";
+
+// var url = "https://spreadsheets.google.com/feeds/list/1Kro7GozZoMHv0j_iQUqZLmuN9dONEYBWRb9grtneiQs/od6/public/values?alt=json"
 
 let app = new Vue({
   el: '#app',

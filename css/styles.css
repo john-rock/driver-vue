@@ -2,6 +2,7 @@ html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-size: 16px;
+  font-family: 'Roboto';
 }
 
 *, *:before, *:after {
@@ -24,7 +25,16 @@ img {
   height: auto;
 }
 
+[v-cloak] {
+  display: none;
+}
+
 #app {
+  padding: 1.2rem;
+  height: 100%;
+}
+
+#driverContent {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -37,7 +47,6 @@ img {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  height: 100vh;
   white-space: pre-line;
 }
 
@@ -49,5 +58,66 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
+}
+
+/* DivTable.com */
+.divTable {
+  display: table;
+  width: 100%;
+  margin: 1rem 0;
+  table-layout: fixed;
+  position: relative;
+}
+
+.divTableRow {
+  display: table-row;
+}
+
+.divTableHeading {
+  background-color: #EEE;
+  display: table-header-group;
+}
+
+.divTableCell, .divTableHead {
+  display: table-cell;
+  padding: 3px 10px;
+}
+
+.divTableHeading {
+  background-color: #EEE;
+  display: table-header-group;
+  font-weight: bold;
+}
+
+.divTableFoot {
+  background-color: #EEE;
+  display: table-footer-group;
+  font-weight: bold;
+}
+
+.divTableBody {
+  display: table-row-group;
+}
+
+.divTableRow .divTableCell {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.divTableRow:nth-of-type(even) {
+  background: #f0f0f0;
+}
+
+.divTableRow .divTableCell:first-of-type {
+  text-align: left;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+.divTableRow:first-of-type {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 /*# sourceMappingURL=styles.css.map */

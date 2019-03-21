@@ -2,52 +2,123 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,900i" rel="stylesheet"> 
-        <link rel="stylesheet" href="css/styles.css">
-        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
-    </head>
-    <body>
-        <!--[if lt IE 7]>
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Driver View</title>
+  <meta name="description" content="NASCAR driver compare">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,900i" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+</head>
+
+<body>
+  <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <div id="app">
+  <div id="app">
 
-          <div class="driver">
-            <select v-model="selected">
-              <option :value="null" disabled>Select Driver 1</option>
-              <option v-for="driver in orderedDrivers" v-bind:value="{races: driver.gsx$races.$t, avgFinish: driver.gsx$avgfinish.$t}" :key="driver">
-                {{driver.gsx$driver.$t}}
-              </option>
-            </select>
-            <span>Starts: {{ selected.races }}</span>
-            <span>Average Finish: {{ selected.avgFinish }}</span>
-          </div>
+    <h1>Driver View</h1>
 
-          <div class="driver">
-            <select v-model="selected2">
-              <option :value="null" disabled>Select Driver 2</option>
-              <option v-for="driver in orderedDrivers" v-bind:value="{races: driver.gsx$races.$t, avgFinish: driver.gsx$avgfinish.$t}">
-                {{driver.gsx$driver.$t}}
-              </option>
-            </select>
-            <span>Starts: {{ selected2.races }}</span>
-            <span>Average Finish: {{ selected2.avgFinish }}</span>
-          </div>
+    <div id="driverContent">
+      <div class="driver">
+        <select v-model="selected">
+          <option :value="null" disabled>Select Driver 1</option>
+          <option v-for="driver in orderedDrivers" v-bind:value="{races: driver.gsx$races.$t, 
+            avgFinish: driver.gsx$avgfinish.$t, 
+            driver: driver.gsx$driver.$t, 
+            wins: driver.gsx$wins.$t, 
+            topFive: driver.gsx$top5s.$t, 
+            topTen: driver.gsx$top10s.$t, 
+            topTwenty: driver.gsx$top20s.$t,
+            dnf: driver.gsx$dnf.$t}"
+            :key="driver">
+            {{driver.gsx$driver.$t}}
+          </option>
+        </select>
+        <!-- <span>Starts: {{ selected.races }}</span>
+            <span>Average Finish: {{ selected.avgFinish }}</span> -->
+      </div>
+
+      <div class="driver">
+        <select v-model="selected2">
+          <option :value="null" disabled>Select Driver 2</option>
+          <option v-for="driver in orderedDrivers" v-bind:value="{races: driver.gsx$races.$t, 
+            avgFinish: driver.gsx$avgfinish.$t, 
+            driver: driver.gsx$driver.$t, 
+            wins: driver.gsx$wins.$t, 
+            topFive: driver.gsx$top5s.$t, 
+            topTen: driver.gsx$top10s.$t, 
+            topTwenty: driver.gsx$top20s.$t,
+            dnf: driver.gsx$dnf.$t}">
+            {{driver.gsx$driver.$t}}
+          </option>
+        </select>
+        <!-- <span>Starts: {{ selected2.races }}</span>
+            <span>Average Finish: {{ selected2.avgFinish }}</span> -->
+      </div>
+    </div>
+
+    <div v-cloak>
+    <div class="divTable" style="width: 100%;">
+      <div class="divTableBody">
+        <div class="divTableRow">
+          <div class="divTableCell">&nbsp;</div>
+          <div class="divTableCell">{{ selected.driver }}</div>
+          <div class="divTableCell">{{ selected2.driver }}</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">Starts</div>
+          <div class="divTableCell">{{ selected.races }}</div>
+          <div class="divTableCell">{{ selected2.races }}</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">Avg. Finish</div>
+          <div class="divTableCell">{{ selected.avgFinish }}</div>
+          <div class="divTableCell">{{ selected2.avgFinish }}</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">Wins</div>
+          <div class="divTableCell">{{ selected.wins }}</div>
+          <div class="divTableCell">{{ selected2.wins }}</div>
+        </div>
+        <div class="divTableRow">
+            <div class="divTableCell">Top 5s</div>
+            <div class="divTableCell">{{ selected.topFive }}</div>
+            <div class="divTableCell">{{ selected2.topFive }}</div>
+        </div>
+        <div class="divTableRow">
+            <div class="divTableCell">Top 10s</div>
+            <div class="divTableCell">{{ selected.topTen }}</div>
+            <div class="divTableCell">{{ selected2.topTen }}</div>
+        </div>
+        <div class="divTableRow">
+            <div class="divTableCell">Top 20s</div>
+            <div class="divTableCell">{{ selected.topTwenty }}</div>
+            <div class="divTableCell">{{ selected2.topTwenty }}</div>
+        </div>
+        <div class="divTableRow">
+            <div class="divTableCell">DNF</div>
+            <div class="divTableCell">{{ selected.dnf }}</div>
+            <div class="divTableCell">{{ selected2.dnf }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-          </div>
-        
-        <script src="js/scripts.js" async defer></script>
-    </body>
+  </div>
+
+  <script src="js/scripts.js" async defer></script>
+</body>
+
 </html>
