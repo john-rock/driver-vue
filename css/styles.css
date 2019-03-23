@@ -2,7 +2,7 @@ html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-size: 16px;
-  font-family: 'Roboto';
+  font-family: "Roboto";
 }
 
 *, *:before, *:after {
@@ -36,9 +36,9 @@ img {
 
 #app h1 {
   text-align: center;
-  font-weight: 700;
+  font-weight: 900;
   text-transform: uppercase;
-  font-style: italic;
+  font-family: "Raleway";
 }
 
 #driverContent {
@@ -119,7 +119,6 @@ img {
   text-align: left;
   font-weight: 700;
   text-transform: uppercase;
-  font-style: italic;
 }
 
 .divTableRow:first-of-type {

@@ -25,8 +25,10 @@ let app = new Vue({
   
   methods:{
     getDrivers: async function(){
+      var url = "https://spreadsheets.google.com/feeds/list/1Kro7GozZoMHv0j_iQUqZLmuN9dONEYBWRb9grtneiQs/" + this.key + "/public/values?alt=json";
+
       this.status = "Loading...";
-      await axios.get("https://spreadsheets.google.com/feeds/list/1Kro7GozZoMHv0j_iQUqZLmuN9dONEYBWRb9grtneiQs/" + this.key + "/public/values?alt=json")
+      await axios.get(url)
         .then((results) => {
         this.driverList= results.data.feed.entry;
         console.log(this.driverList);

@@ -1,7 +1,9 @@
+@import 'variables';
+
 html {
     box-sizing: border-box;
     font-size: 16px;
-    font-family: 'Roboto';
+    font-family: $webfont2;
   }
   
   *, *:before, *:after {
@@ -9,7 +11,7 @@ html {
   }
   
   body, h1, h2, h3, h4, h5, h6, p, ol, ul {
-    margin: 0;
+    margin: 0; 
     padding: 0;
     font-weight: normal;
   }
@@ -34,9 +36,9 @@ html {
 
 #app h1{
   text-align: center;
-  font-weight: 700;
+  font-weight: 900;
   text-transform: uppercase;
-  font-style: italic;
+  font-family: $webfont;
 }
 
 #driverContent{
@@ -99,7 +101,6 @@ html {
   text-align: left;
   font-weight: 700;
   text-transform: uppercase;
-  font-style:italic;
 }
 
 .divTableRow:first-of-type{
