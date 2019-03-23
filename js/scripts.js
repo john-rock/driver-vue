@@ -2,10 +2,6 @@ console.clear()
 
 Vue.config.devtools = true;
 
-var trackID = "1";
-
-var url = "https://spreadsheets.google.com/feeds/list/1Kro7GozZoMHv0j_iQUqZLmuN9dONEYBWRb9grtneiQs/" + trackID + "/public/values?alt=json";
-
 // var url = "https://spreadsheets.google.com/feeds/list/1Kro7GozZoMHv0j_iQUqZLmuN9dONEYBWRb9grtneiQs/od6/public/values?alt=json"
 
 let app = new Vue({
@@ -17,7 +13,8 @@ let app = new Vue({
   data: {
     selected: '',
     selected2: '',
-    driverList: []
+    driverList: [],
+    key: '1'
   },
 
   computed: {
@@ -29,11 +26,12 @@ let app = new Vue({
   methods:{
     getDrivers: async function(){
       this.status = "Loading...";
-      await axios.get(url)
+      await axios.get("https://spreadsheets.google.com/feeds/list/1Kro7GozZoMHv0j_iQUqZLmuN9dONEYBWRb9grtneiQs/" + this.key + "/public/values?alt=json")
         .then((results) => {
         this.driverList= results.data.feed.entry;
         console.log(this.driverList);
         console.log(url);
+        console.log(this.key);
 
       })
       .catch (function (error){

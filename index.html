@@ -29,6 +29,12 @@
 
     <h1>Driver View</h1>
 
+    <select id="trackList" @change="getDrivers()" v-model="key">
+      <option value="1">Atlanta</option>
+      <option value="2">Bristol</option>
+      <option value="3">California</option>
+    </select> 
+
     <div id="driverContent">
       <div class="driver">
         <select v-model="selected">
